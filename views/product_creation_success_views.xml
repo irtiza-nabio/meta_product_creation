@@ -1,0 +1,12 @@
+<odoo>
+    <template id="product_create_success" name="Product Creation Success">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h2>Product Created Successfully!</h2>
+                <p>Product <strong><t t-esc="product.name"/></strong> has been successfully created.</p>
+                <p>You currently have <strong><t t-esc="reward_points"/></strong> reward points.</p>
+                <a href="/barcode/scanner" class="btn btn-primary">Go to Shop</a>
+            </div>
+        </t>
+    </template>
+</odoo>

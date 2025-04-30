@@ -1,0 +1,38 @@
+<odoo>
+    <template id="user_product_list_template" name="User Product List">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h2 class="mb-4"><t t-esc="request.env.user.name"/>!</h2>
+
+                <div class="alert alert-info">
+                    <strong> Product Creation Points:</strong> <t t-esc="points"/>
+                </div>
+                <h3 class="mt-4 mb-3">Products You have Created:</h3>
+                <t t-if="products">
+                    <div class="row">
+                        <t t-foreach="products" t-as="product">
+                            <div class="com-md-4 col-4">
+                                <div class="card h-100">
+                                    <t t-if="product.image_1920">
+                                        <img t-att-src="'data:image/png;base64,%s' % product.image_1920.decode('utf-8')" class="card-img-top" alt="Product Image"/>
+                                    </t>
+                                    <t t-else="">
+                                        <img src="/web/static/src/img/placeholder.png" class="card-img-top" alt="No Image"/>
+                                    </t>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><t t-esc="product.name"/></h5>
+                                        <p class="card-text"><strong>Price:</strong><t t-esc="product.list_price"/> USD</p>
+                                        <p class="card-text"><t t-esc="product.description"/></p>
+                                    </div>     
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+                <t t-else="">
+                    <p>You haven't created any products yet.</p>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

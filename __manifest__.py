@@ -16,6 +16,6 @@
         "views/product_create_form.xml",
         "views/product_creation_success_views.xml",
         "views/menu.xml",
-        # "views/user_product_list_template.xml"
+        "views/user_product_list_template.xml"
     ],
 }

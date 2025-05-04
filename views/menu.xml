@@ -2,8 +2,8 @@
     <!-- Action that redirects to a URL -->
     <record id="action_go_to_add_product" model="ir.actions.act_url">
         <field name="name">Go to Add Product</field>
-        <field name="url">/product/add</field>
-        <field name="target">new</field> <!-- or 'new' to open in new tab -->
+        <field name="url">/user/product/create</field>  <!-- Changed URL -->
+        <field name="target">new</field> <!-- Open in new tab -->
     </record>
 
     <!-- Root Menu with action -->

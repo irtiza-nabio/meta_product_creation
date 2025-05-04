@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data noupdate="1">
+        <!-- Product Creation Menu Item -->
         <record id="menu_create_product_custom" model="website.menu">
             <field name="name">Create Product</field>
-            <field name="url">/product/add</field>
+            <field name="url">/user/product/create</field>  <!-- Changed URL -->
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">200</field>
             <field name="group_ids" eval="[Command.link(ref('base.group_user')), Command.link(ref('base.group_portal'))]"/>
         </record>
-    </data>
+    </data>
 </odoo>

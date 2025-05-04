@@ -1,1 +1,1 @@
-from . import user_product_link
+from . import main

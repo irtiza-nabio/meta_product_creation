@@ -5,7 +5,7 @@
                 <h2>Product Created Successfully!</h2>
                 <p>Product <strong><t t-esc="product.name"/></strong> has been successfully created.</p>
                 <p>You currently have <strong><t t-esc="reward_points"/></strong> reward points.</p>
-                <a href="/barcode/scanner" class="btn btn-primary">Go to Shop</a>
+                <a href="/user/products" class="btn btn-primary">View My Total Reward Points</a>
             </div>
         </t>
     </template>

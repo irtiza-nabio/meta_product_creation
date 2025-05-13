@@ -7,31 +7,158 @@
                     <form id="product_create_form" action="/user/product/submit" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
 
+                        <!-- Product Name -->
                         <div class="mb-3">
                             <label for="product_name_input" class="form-label">Product Name</label>
                             <input type="text" name="name" id="product_name_input" class="form-control"
                                    t-att-value="name if name else ''" placeholder="Enter product name" />
                         </div>
 
+                        <!-- Product Price -->
                         <div class="mb-3">
                             <label for="product_price_input" class="form-label">Product Price</label>
                             <input type="number" step="0.01" name="price" id="product_price_input" class="form-control"
                                    t-att-value="price if price else ''" placeholder="Enter product price" />
                         </div>
 
+                        <!-- UPC -->
+                        <div class="mb-3">
+                            <label for="product_upc_input" class="form-label">UPC</label>
+                            <input type="text" name="upc" id="product_upc_input" class="form-control"
+                                   t-att-value="upc if upc else ''" placeholder="Enter UPC" />
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-3">
+                            <label for="product_category_input" class="form-label">Category</label>
+                            <input type="text" name="category" id="product_category_input" class="form-control"
+                                   t-att-value="category if category else ''" placeholder="Enter category" />
+                        </div>
+
+                        <!-- Title -->
+                        <div class="mb-3">
+                            <label for="product_title_input" class="form-label">Title</label>
+                            <input type="text" name="title" id="product_title_input" class="form-control"
+                                   t-att-value="title if title else ''" placeholder="Enter title" />
+                        </div>
+
+                        <!-- MPN -->
+                        <div class="mb-3">
+                            <label for="product_mpn_input" class="form-label">MPN</label>
+                            <input type="text" name="mpn" id="product_mpn_input" class="form-control"
+                                   t-att-value="mpn if mpn else ''" placeholder="Enter MPN" />
+                        </div>
+
+                        <!-- Model -->
+                        <div class="mb-3">
+                            <label for="product_model_input" class="form-label">Model</label>
+                            <input type="text" name="model" id="product_model_input" class="form-control"
+                                   t-att-value="model if model else ''" placeholder="Enter model" />
+                        </div>
+
+                        <!-- Manufacturer -->
+                        <div class="mb-3">
+                            <label for="product_manufacturer_input" class="form-label">Manufacturer</label>
+                            <input type="text" name="manufacturer" id="product_manufacturer_input" class="form-control"
+                                   t-att-value="manufacturer if manufacturer else ''" placeholder="Enter manufacturer" />
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="mb-3">
+                            <label for="product_brand_input" class="form-label">Brand</label>
+                            <input type="text" name="brand" id="product_brand_input" class="form-control"
+                                   t-att-value="brand if brand else ''" placeholder="Enter brand" />
+                        </div>
+
+                        <!-- Age Group -->
+                        <div class="mb-3">
+                            <label for="product_age_group_input" class="form-label">Age Group</label>
+                            <input type="text" name="age_group" id="product_age_group_input" class="form-control"
+                                   t-att-value="age_group if age_group else ''" placeholder="Enter age group" />
+                        </div>
+
+                        <!-- Color -->
+                        <div class="mb-3">
+                            <label for="product_color_input" class="form-label">Color</label>
+                            <input type="text" name="color" id="product_color_input" class="form-control"
+                                   t-att-value="color if color else ''" placeholder="Enter color" />
+                        </div>
+
+                        <!-- Multipack -->
+                        <div class="mb-3">
+                            <label for="product_multipack_input" class="form-label">Multipack</label>
+                            <input type="text" name="multipack" id="product_multipack_input" class="form-control"
+                                   t-att-value="multipack if multipack else ''" placeholder="Enter multipack details" />
+                        </div>
+
+                        <!-- Size -->
+                        <div class="mb-3">
+                            <label for="product_size_input" class="form-label">Size</label>
+                            <input type="text" name="size" id="product_size_input" class="form-control"
+                                   t-att-value="size if size else ''" placeholder="Enter size" />
+                        </div>
+
+                        <!-- Dimensions -->
+                        <div class="mb-3">
+                            <label for="product_length_input" class="form-label">Length</label>
+                            <input type="text" name="length" id="product_length_input" class="form-control"
+                                   t-att-value="length if length else ''" placeholder="e.g., 30cm" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="product_width_input" class="form-label">Width</label>
+                            <input type="text" name="width" id="product_width_input" class="form-control"
+                                   t-att-value="width if width else ''" placeholder="e.g., 20cm" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="product_height_input" class="form-label">Height</label>
+                            <input type="text" name="height" id="product_height_input" class="form-control"
+                                   t-att-value="height if height else ''" placeholder="e.g., 15cm" />
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="mb-3">
+                            <label for="product_weight_input" class="form-label">Weight</label>
+                            <input type="text" name="weight" id="product_weight_input" class="form-control"
+                                   t-att-value="weight if weight else ''" placeholder="Enter weight" />
+                        </div>
+
+                        <!-- Release Date -->
+                        <div class="mb-3">
+                            <label for="product_release_date_input" class="form-label">Release Date</label>
+                            <input type="date" name="release_date" id="product_release_date_input" class="form-control"
+                                   t-att-value="release_date if release_date else ''" placeholder="Enter release date" />
+                        </div>
+
+                        <!-- Feature -->
+                        <div class="mb-3">
+                            <label for="product_feature_input" class="form-label">Feature</label>
+                            <input type="text" name="feature" id="product_feature_input" class="form-control"
+                                   t-att-value="feature if feature else ''" placeholder="Enter product feature" />
+                        </div>
+
+                        <!-- Product Image -->
                         <div class="mb-3">
                             <label for="product_image_input" class="form-label">Product Image</label>
                             <input type="file" name="image" id="product_image_input" class="form-control" accept="image/*" />
                         </div>
 
+                        <!-- Product Barcode -->
+                        <div class="mb-3">
+                            <label for="product_barcode_input" class="form-label">Product Barcode</label>
+                            <input type="number" step="0.01" name="barcode" id="product_barcode_input" class="form-control"
+                                   t-att-value="barcode if barcode else ''" placeholder="Enter product barcode" />
+                        </div>
+
+                        <!-- Product Description -->
                         <div class="mb-3">
                             <label for="product_description_input" class="form-label">Product Description</label>
                             <textarea name="description" id="product_description_input" rows="4" class="form-control"
-                                      placeholder="Enter product description">
-                                <t t-esc="description"/>
-                            </textarea>
+                                      placeholder="Enter product description"><t t-esc="description"/></textarea>
                         </div>
 
+                        <!-- Submit Button -->
                         <div class="text-center mb-4">
                             <button type="submit" class="btn btn-primary btn-lg">
                                 <i class="fa fa-plus me-2"></i>Create Product

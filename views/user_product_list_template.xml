@@ -1,33 +1,94 @@
 <odoo>
+    <template id="portal_my_home_menu_extension_products" inherit_id="portal.portal_my_home"
+          name="Portal My Home Added Products">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <div class="col-lg-4">
+                <a href="/user/products" class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fa fa-cube fa-3x text-success mb-3"/>  <!-- Icon for products -->
+                        <h5 class="card-title">My Added Products</h5>
+                        <p class="card-text text-muted">View all products you have added</p>
+                    </div>
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+    
     <template id="user_product_list_template" name="User Product List">
         <t t-call="website.layout">
             <div class="container mt-5">
                 <h2 class="mb-4"><t t-esc="request.env.user.name"/>!</h2>
 
                 <div class="alert alert-info">
-                    <strong> Product Creation Points:</strong> <t t-esc="points"/>
+                    <strong>Product Creation Points:</strong> <t t-esc="points"/>
                 </div>
-                <h3 class="mt-4 mb-3">Products You have Created:</h3>
+
+                <h3 class="mt-4 mb-3">Products You Have Created:</h3>
+
                 <t t-if="products">
-                    <div class="row">
-                        <t t-foreach="products" t-as="product">
-                            <div class="com-md-4 col-4">
-                                <div class="card h-100">
-                                    <t t-if="product.image_1920">
-                                        <img t-att-src="'data:image/png;base64,%s' % product.image_1920.decode('utf-8')" class="card-img-top" alt="Product Image"/>
-                                    </t>
-                                    <t t-else="">
-                                        <img src="/web/static/src/img/placeholder.png" class="card-img-top" alt="No Image"/>
-                                    </t>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><t t-esc="product.name"/></h5>
-                                        <p class="card-text"><strong>Price:</strong><t t-esc="product.list_price"/> USD</p>
-                                        <p class="card-text"><t t-esc="product.description"/></p>
-                                    </div>     
+                    <form id="product-selection-form" class="d-flex flex-column gap-3">
+                        <!-- Wrapper for the widget -->
+                        <div class="product-checkbox-wrapper d-flex flex-column gap-3">
+                            <t t-foreach="products" t-as="product">
+                                <div class="card shadow-sm p-3">
+                                    <div class="d-flex align-items-center justify-content-between gap-5 flex-wrap">
+                                        <!-- Product Image -->
+                                        <div>
+                                            <t t-if="product.image_1920">
+                                                <img t-att-src="'data:image/png;base64,%s' % product.image_1920.decode('utf-8')"
+                                                     alt="Product Image"
+                                                     style="height: 100px; width: 100px; object-fit: cover;"
+                                                     class="rounded"/>
+                                            </t>
+                                            <t t-else="">
+                                                <img src="/web/static/src/img/placeholder.png"
+                                                     alt="No Image"
+                                                     style="height: 100px; width: 100px; object-fit: cover;"
+                                                     class="rounded"/>
+                                            </t>
+                                        </div>
+
+                                        <!-- Product Name -->
+                                        <div style="min-width: 150px;">
+                                            <strong>Name:</strong> <t t-esc="product.name"/>
+                                        </div>
+
+                                        <!-- Product Price -->
+                                        <div style="min-width: 120px;">
+                                            <strong>Price:</strong> <t t-esc="product.list_price"/> USD
+                                        </div>
+
+                                        <!-- Product Description -->
+                                        <div style="flex-grow: 1;">
+                                            <strong>Description:</strong> <t t-esc="product.description"/>
+                                        </div>
+
+                                        <!-- Product Barcode -->
+                                        <div style="flex-grow: 1;">
+                                            <strong>Barcode:</strong> <t t-esc="product.barcode"/>
+                                        </div>
+
+                                        <!-- Product Creation Time -->
+                                        <div style="min-width: 200px;">
+                                            <strong>Created At:</strong>
+                                            <t t-esc="creation_date"/>
+                                        </div>
+
+                                        <!-- Product Selection (Checkbox) -->
+                                        <input type="checkbox" class="product-checkbox form-check-input" 
+                                               style="transform: scale(1.5); margin-right: 10px; cursor: pointer;" 
+                                               t-att-value="product.id"/>
+                                    </div>
                                 </div>
-                            </div>
-                        </t>
-                    </div>
+                            </t>
+                        </div>
+
+                        <!-- Display Total Points -->
+                        <div id="total-points-display" class="mt-4 alert alert-success" style="display: none;">
+                            <strong>Total Reward Points For The Selected Products:</strong> <span id="total-points">0</span>
+                        </div>
+                    </form>
                 </t>
                 <t t-else="">
                     <p>You haven't created any products yet.</p>

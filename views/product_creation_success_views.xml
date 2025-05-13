@@ -3,9 +3,28 @@
         <t t-call="website.layout">
             <div class="container mt-5">
                 <h2>Product Created Successfully!</h2>
+                
                 <p>Product <strong><t t-esc="product.name"/></strong> has been successfully created.</p>
+                
+                <p>Created on: 
+                    <strong>
+                        <t t-esc="creation_date"/>
+                    </strong>
+                </p>
+
+                <p>Creator: <strong><t t-esc="product.creator_id.name"/></strong></p>
+
                 <p>You currently have <strong><t t-esc="reward_points"/></strong> reward points.</p>
-                <a href="/user/products" class="btn btn-primary">View My Total Reward Points</a>
+
+                <!-- ✅ Rich HTML Product Description -->
+                <div class="mt-4">
+                    <h4>Product Description</h4>
+                    <div>
+                        <t t-esc="product.description_sale" t-options='{"widget": "html"}'/>
+                    </div>
+                </div>
+
+                <a href="/user/products" class="btn btn-primary mt-3">View My Total Reward Points</a>
             </div>
         </t>
     </template>

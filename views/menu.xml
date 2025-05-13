@@ -5,6 +5,7 @@
         <field name="url">/user/product/create</field>  <!-- Changed URL -->
         <field name="target">new</field> <!-- Open in new tab -->
     </record>
+    
 
     <!-- Root Menu with action -->
     <menuitem id="menu_product_creation"
